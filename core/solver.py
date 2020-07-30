@@ -89,7 +89,9 @@ class Solver(nn.Module):
 
         # resume training if necessary
         if args.resume_iter > 0:
-            self._load_checkpoint(args.resume_iter)
+            self._load_checkpoint(args.resume_iter)            
+            for name in os.listdir(args.checkpoint_dir):
+                os.remove(ospj(args.checkpoint_dir, name))
 
         # remember the initial value of ds weight
         initial_lambda_ds = args.lambda_ds
