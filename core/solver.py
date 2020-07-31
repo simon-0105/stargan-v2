@@ -86,7 +86,7 @@ class Solver(nn.Module):
         fetcher = InputFetcher(loaders.src, loaders.ref, args.latent_dim, 'train')
         fetcher_val = InputFetcher(loaders.val, None, args.latent_dim, 'val')
         inputs_val = next(fetcher_val)
-
+        
         # resume training if necessary
         if args.resume_iter > 0:
             self._load_checkpoint(args.resume_iter)            
